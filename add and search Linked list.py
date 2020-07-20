@@ -5,6 +5,8 @@ Created on Mon Jul 20 14:09:50 2020
 @author: Mugdha
 """
 
+#Add nodes at the end of Linked list
+
 class Node:
     def __init__(self,data):
         self.__data=data
