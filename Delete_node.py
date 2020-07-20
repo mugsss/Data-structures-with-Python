@@ -46,9 +46,13 @@ class LinkedList:
             print(i)
             
     def find_node(self,data):
-        pass                                                  
-        #Remove pass and copy the code you had written to find the node containing the element.
-
+        temp = self.__head
+        while(temp != None):
+            if(temp.get_data()==data):
+                return temp
+            else:
+                temp = temp.get_next()
+                
     
     def insert(self,data,data_before):
         item = Node(data)
@@ -65,30 +69,30 @@ class LinkedList:
             item.set_next(temp.get_next())
             temp.set_next(item) 
     
+
+            
     def delete(self,data):
-        temp = list1.find_node(data)
-        if(temp == None):
-            print("The element you are trying to delete is not present in the list1inked")
-        elif(temp == self.__head):
-            if(temp == self.__tail):
-                self.__head = None
-                self.__tail = None
-            else:
-                self.__head = temp.get_next()
-            
-            
-        elif(temp == self.__tail):
-            self.__tail = None
-        else:
-            ptr= self.__head
-            while(ptr.get_data()!= data):
-                ptr = ptr.get_next()
-            if(temp.get_next()==None):
-                ptr = self.__tail
-            else:
-                ptr.set_next(temp.get_next())
-            
+        node=self.find_node(data)
         
+        if(node is not None):
+            if(node==self.__head):
+                if(self.__head==self.__tail):
+                    self.__tail=None
+                else:
+                    self.__head=node.get_next()
+            else:
+                temp=self.__head
+                while(temp is not None):
+                    if(temp.get_next()==node):
+                        temp.set_next(node.get_next())
+                        if(node==self.__tail):
+                            self.__tail=temp
+                        node.set_next(None)
+                        break
+                    temp=temp.get_next()
+        else:
+            print(data,"is not present in Linked list") 
+    
                                               
     #You can use the below __str__() to print the elements of the DS object while debugging
     def __str__(self):
@@ -114,6 +118,10 @@ list1.add("Sugar")
 #Delete the required element.
 
 
+#list1.delete("Soap")
+#list1.delete("lemons")
+#list1.delete("Teabags")
 list1.delete("Sugar")
+
 list1.display()
                                               
