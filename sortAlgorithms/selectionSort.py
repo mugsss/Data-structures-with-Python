@@ -32,3 +32,25 @@ num_list=[8,2,19,34,23, 67, 91]
 print("Before sorting;",num_list)
 selection_sort(num_list)
 print("After sorting:",num_list)
+
+
+'''
+
+def selSort(list1):
+    #print(list1)
+    for i in range(0,len(list1)):
+        sPo = i
+        for j in range(i+1,len(list1)):
+            if(list1[sPo] > list1[j]):
+                sPo = j
+        list1[i],list1[sPo] = list1[sPo],list1[i]
+        #print(list1)
+
+    print(list1)
+
+
+list1 = [9,7,6,5,8]
+selSort(list1)
+
+'''
+
